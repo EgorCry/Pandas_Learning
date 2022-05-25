@@ -29,10 +29,15 @@ print(account_info)
 
 print()
 
-account_info.__getitem__(0).__setitem__('balance', NEW_BALANCE)
+account_info.loc[:, (0, 'balance')] = NEW_BALANCE
 
 print()
 
+# Won't work because
+"""
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+"""
 account_info[0]['balance'] = NEW_BALANCE
 
 print(account_info)
